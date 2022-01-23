@@ -18,7 +18,7 @@ defineProps(["festival"]);
 
 <template>
   <div>
-    <Bla>{{ formatMarkdown(festival.description_estonian) }}</Bla>
+    <Bla :content="formatMarkdown(festival.description_estonian)" />
     <ETitle size="lg">
       {{ festival.title }}
     </ETitle>

@@ -5,10 +5,9 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Bla: typeof import('./src/components/Bla.vue')['default']
-    EContent: typeof import("elektro")["EContent"];
-    ENav: typeof import("elektro")["ENav"];
-    ETitle: typeof import("elektro")["ETitle"];
-    Head: typeof import("@vueuse/head")["Head"];
+    EBox: typeof import('elektro')['EBox']
+    EContent: typeof import('elektro')['EContent']
+    ETitle: typeof import('elektro')['ETitle']
   }
 }
 
