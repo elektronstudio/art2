@@ -10,6 +10,10 @@ const navItems = [
     path: "/lavastused",
   },
   {
+    name: "Festivalid",
+    path: "/festivalid",
+  },
+  {
     name: "Projektid",
     path: "/projektid",
   },
