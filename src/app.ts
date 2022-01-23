@@ -1,7 +1,7 @@
 import "elektro/style.css";
 import { defineApp } from "iles";
 import * as elektro from "elektro";
-const components = ["ENav", "ETitle", "EBox"];
+const components = ["ENav", "ETitle", "EBox", "EContent"];
 
 export default defineApp({
   enhanceApp({ app }) {

@@ -1,11 +1,9 @@
 import { $fetch } from "ohmyfetch";
 
 export async function getEvents() {
-  const data: any = await $fetch("https://strapi.elektron.art/events");
-  return data;
+  return $fetch("https://strapi.elektron.art/events");
 }
 
 export async function getFestivals() {
-  const data: any = await $fetch("https://strapi.elektron.art/festivals");
-  return data;
+  return $fetch("https://strapi.elektron.art/festivals");
 }

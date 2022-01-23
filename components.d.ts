@@ -2,11 +2,14 @@
 // We suggest you to commit this file into source control
 // Read more: https://github.com/vuejs/vue-next/pull/3399
 
-declare module "vue" {
+declare module 'vue' {
   export interface GlobalComponents {
+    Bla: typeof import('./src/components/Bla.vue')['default']
+    EContent: typeof import("elektro")["EContent"];
     ENav: typeof import("elektro")["ENav"];
     ETitle: typeof import("elektro")["ETitle"];
+    Head: typeof import("@vueuse/head")["Head"];
   }
 }
 
-export {};
+export { }
