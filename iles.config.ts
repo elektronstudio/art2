@@ -6,7 +6,6 @@ export default defineConfig({
   components: {
     resolvers: [
       (name) => {
-        console.log(name);
         if (name.startsWith("E")) return { importName: name, path: "elektro" };
       },
     ],

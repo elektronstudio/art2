@@ -18,12 +18,16 @@ defineProps(["festival"]);
 
 <template>
   <div>
-    <Bla :content="formatMarkdown(festival.description_estonian)" />
     <ETitle size="lg">
       {{ festival.title }}
     </ETitle>
-    <EContent v-if="festival.description_english">
-      {{ festival.description_english }}
-    </EContent>
+    <EContent
+      v-if="festival.description_estonian"
+      :content="formatMarkdown(festival.description_estonian)"
+    />
+    <EContent
+      v-if="festival.description_english"
+      :content="formatMarkdown(festival.description_english)"
+    />
   </div>
 </template>
