@@ -18,9 +18,9 @@ const festivals = await getFestivals();
         v-for="festival in festivals"
         :to="'/festivalid/' + festival.slug"
       >
-        <EBox style="height: 100%">
-          <ETitle v-html="festival.title" />
-        </EBox>
+        <EProductionCard>
+          <ETitle :title="festival.title" :thumbnail="festival.images[0]" />
+        </EProductionCard>
       </router-link>
     </div>
   </div>
