@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import { ENav, ETitle } from "elektro";
+import { ENav } from "elektro";
+
 const navItems = [
-  {
-    name: "eˉlektron",
-    path: "/",
-  },
   {
     name: "Lavastused",
     path: "/lavastused",
-  },
-  {
-    name: "Festivalid",
-    path: "/festivalid",
   },
   {
     name: "Projektid",
@@ -26,18 +19,18 @@ const navItems = [
     path: "/meist",
   },
   {
-    name: "En",
+    name: "ENG",
     path: "/en",
   },
   {
-    name: "Live",
+    name: "LIVE",
     path: "/live",
   },
 ];
 </script>
 <template>
   <div>
-    <ENav :navItems="navItems" />
+    <ENav :navItems="navItems" showLogo />
     <main class="Layout">
       <slot />
     </main>

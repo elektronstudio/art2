@@ -1,75 +1,6 @@
 <script setup lang="ts">
 import { getFestivals, formatMarkdown } from "../logic";
 const festivals = await getFestivals();
-
-const scheduleEvents = [
-  {
-    title: "Hundid",
-    description:
-      "<p>Lavastus “Hundid” on jätk Liis Varese ja Taavet Janseni koostööle “Kõik loeb/ The Reader”, mille soe vastuvõtt on julgustanud neid digitaalse formaadiga edasi töötama.</p>",
-    events: [
-      {
-        startTime: "2022-06-01T19:00:00.000Z",
-        endTime: "2022-06-01T19:00:00.000Z",
-        ticketUrl: "https://www.eventbrite.com/e/hundid-tickets-53907988984",
-      },
-      {
-        startTime: "2022-07-01T19:00:00.000Z",
-        endTime: "2022-07-01T19:00:00.000Z",
-        ticketUrl: "https://www.eventbrite.com/e/hundid-tickets-53907988984",
-      },
-      {
-        startTime: "2022-09-01T19:00:00.000Z",
-        endTime: "2022-09-01T19:00:00.000Z",
-        ticketUrl: "https://www.eventbrite.com/e/hundid-tickets-53907988984",
-      },
-    ],
-  },
-  {
-    title: "Nature as magic",
-    description:
-      "<p>Lavastus “Hundid” on jätk Liis Varese ja Taavet Janseni koostööle “Kõik loeb/ The Reader”, mille soe vastuvõtt on julgustanud neid digitaalse formaadiga edasi töötama.</p>",
-    events: [
-      {
-        startTime: "2022-06-01T19:00:00.000Z",
-        endTime: "2022-06-01T19:00:00.000Z",
-        ticketUrl: "https://www.eventbrite.com/e/hundid-tickets-53907988984",
-      },
-      {
-        startTime: "2022-07-01T19:00:00.000Z",
-        endTime: "2022-07-01T19:00:00.000Z",
-        ticketUrl: "https://www.eventbrite.com/e/hundid-tickets-53907988984",
-      },
-      {
-        startTime: "2022-09-01T19:00:00.000Z",
-        endTime: "2022-09-01T19:00:00.000Z",
-        ticketUrl: "https://www.eventbrite.com/e/hundid-tickets-53907988984",
-      },
-    ],
-  },
-  {
-    title: "Sinust saab tantsija!",
-    description:
-      "<p>Lavastus “Hundid” on jätk Liis Varese ja Taavet Janseni koostööle “Kõik loeb/ The Reader”, mille soe vastuvõtt on julgustanud neid digitaalse formaadiga edasi töötama.</p>",
-    events: [
-      {
-        startTime: "2022-06-01T19:00:00.000Z",
-        endTime: "2022-06-01T19:00:00.000Z",
-        ticketUrl: "https://www.eventbrite.com/e/hundid-tickets-53907988984",
-      },
-      {
-        startTime: "2022-07-01T19:00:00.000Z",
-        endTime: "2022-07-01T19:00:00.000Z",
-        ticketUrl: "https://www.eventbrite.com/e/hundid-tickets-53907988984",
-      },
-      {
-        startTime: "2022-09-01T19:00:00.000Z",
-        endTime: "2022-09-01T19:00:00.000Z",
-        ticketUrl: "https://www.eventbrite.com/e/hundid-tickets-53907988984",
-      },
-    ],
-  },
-];
 </script>
 
 <template>
@@ -78,9 +9,17 @@ const scheduleEvents = [
     <EScheduleEvent
       v-for="festival in festivals"
       :title="festival.title"
-      :description="formatMarkdown(festival.description_estonian)"
+      description="Lavastus “Hundid” on jätk Liis Varese ja Taavet Janseni koostööle “Kõik loeb/ The Reader”, mille soe vastuvõtt on julgustanud neid digitaalse formaadiga edasi töötama."
       :events="festival.events"
-    />
+    >
+      <EEventInstance
+        v-if="festival.events"
+        v-for="item in festival.events"
+        :start-at="item.start_at"
+        :end-at="item.end_at"
+        :ticket-url="item.ticketUrl"
+      />
+    </EScheduleEvent>
   </main>
 </template>
 
@@ -88,7 +27,6 @@ const scheduleEvents = [
 .Page.Projects {
   display: grid;
   grid-template-columns: 1fr;
-  padding: var(--p-5);
 }
 .Page.Projects > section {
   margin-bottom: var(--m-12);
