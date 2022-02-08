@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     EBox: typeof import('elektro')['EBox']
     EContent: typeof import('elektro')['EContent']
+    EDetailsList: typeof import('elektro')['EDetailsList']
     EEventInstance: typeof import('elektro')['EEventInstance']
     EProductionCard: typeof import('elektro')['EProductionCard']
     EScheduleEvent: typeof import('elektro')['EScheduleEvent']

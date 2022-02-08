@@ -51,7 +51,7 @@ defineProps(["festival"]);
     <main>
       <EBox class="MainContent">
         <!-- @TODO: Add metadata -->
-        <!-- <EDetailsList :details="details" /> -->
+        <EDetailsList :details="[{ detail: 'Detail', value: 'Value' }]" />
         <EContent :content="formatMarkdown(festival.description_estonian)" />
       </EBox>
       <EBox class="SideContent" el="aside">
