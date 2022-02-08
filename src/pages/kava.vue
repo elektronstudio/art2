@@ -3,10 +3,6 @@ import { getFestivals, formatMarkdown } from "../logic";
 import { formatDatetime, useRange } from "elektro";
 const festivals = await getFestivals();
 
-const formatDate = (start_at: string) => {
-  return formatDatetime(new Date(start_at));
-};
-
 const isUpcoming = (start_at: string, end_at: string) => {
   const { urgency } = useRange(new Date(start_at), new Date(end_at));
   return urgency === "upcoming";
@@ -39,7 +35,7 @@ const upcomingFestivals = festivals.filter(({ events }: { events: any[] }) =>
         <template v-if="festival.events" v-for="item in festival.events">
           <EEventInstance
             v-if="isUpcoming(item.start_at, item.end_at)"
-            :start-at="formatDate(item.start_at)"
+            :start-at="formatDatetime(new Date(item.start_at))"
             :ticket-url="item.ticketUrl"
           />
         </template>
