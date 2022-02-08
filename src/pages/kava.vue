@@ -1,25 +1,52 @@
 <script setup lang="ts">
 import { getFestivals, formatMarkdown } from "../logic";
+import { formatDatetime, useRange } from "elektro";
 const festivals = await getFestivals();
+
+const formatDate = (start_at: string) => {
+  return formatDatetime(new Date(start_at));
+};
+
+const isUpcoming = (start_at: string, end_at: string) => {
+  const { urgency } = useRange(new Date(start_at), new Date(end_at));
+  return urgency === "upcoming";
+};
+
+const upcomingEvents = (events: any[]) => {
+  return events.filter(
+    ({ start_at, end_at }: { start_at: string; end_at: string }) =>
+      isUpcoming(start_at, end_at),
+  );
+};
+
+// @TODO: Should this be a computed property, because useRange is reactive?
+const upcomingFestivals = festivals.filter(({ events }: { events: any[] }) =>
+  upcomingEvents(events),
+);
 </script>
 
 <template>
-  <ArtNav />
+  <!-- <ArtNav /> -->
   <main class="Page Projects">
-    <EScheduleEvent
-      v-for="festival in festivals"
-      :title="festival.title"
-      description="Lavastus “Hundid” on jätk Liis Varese ja Taavet Janseni koostööle “Kõik loeb/ The Reader”, mille soe vastuvõtt on julgustanud neid digitaalse formaadiga edasi töötama."
-      :events="festival.events"
-    >
-      <EEventInstance
-        v-if="festival.events"
-        v-for="item in festival.events"
-        :start-at="item.start_at"
-        :end-at="item.end_at"
-        :ticket-url="item.ticketUrl"
-      />
-    </EScheduleEvent>
+    <template v-if="upcomingFestivals > 0" v-for="festival in festivals">
+      <EScheduleEvent
+        v-if="upcomingEvents(festival.events).length > 0"
+        :title="festival.title"
+        description="Lavastus “Hundid” on jätk Liis Varese ja Taavet Janseni koostööle “Kõik loeb/ The Reader”, mille soe vastuvõtt on julgustanud neid digitaalse formaadiga edasi töötama."
+        :events="festival.events"
+      >
+        <template v-if="festival.events" v-for="item in festival.events">
+          <EEventInstance
+            v-if="isUpcoming(item.start_at, item.end_at)"
+            :start-at="formatDate(item.start_at)"
+            :ticket-url="item.ticketUrl"
+          />
+        </template>
+      </EScheduleEvent>
+    </template>
+    <section v-else>
+      <ETitle>Tulevaid sündmusi ei leitud</ETitle>
+    </section>
   </main>
 </template>
 
