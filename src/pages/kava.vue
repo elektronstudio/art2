@@ -29,6 +29,7 @@ const upcomingFestivals = festivals.filter(({ events }: { events: any[] }) =>
   <!-- <ArtNav /> -->
   <main class="Page Projects">
     <template v-if="upcomingFestivals > 0" v-for="festival in festivals">
+      <!-- @TODO: Add short description from Strapi -->
       <EScheduleEvent
         v-if="upcomingEvents(festival.events).length > 0"
         :title="festival.title"
