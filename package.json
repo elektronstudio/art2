@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "cross-fetch": "^3.1.5",
-    "elektro": "^0.0.18-beta.1",
+    "elektro": "^0.0.18-beta.5",
     "marked": "^4.0.10"
   },
   "devDependencies": {
