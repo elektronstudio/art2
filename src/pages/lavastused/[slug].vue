@@ -54,7 +54,11 @@ defineProps(["festival"]);
         <EDetailsList :details="[{ detail: 'Detail', value: 'Value' }]" />
         <EContent :content="formatMarkdown(festival.description_estonian)" />
       </EBox>
-      <EBox class="SideContent" el="aside">
+      <EBox
+        v-if="upcomingEvents(festival.events).length > 0 || festival.press"
+        class="SideContent"
+        el="aside"
+      >
         <template v-if="upcomingEvents(festival.events).length > 0">
           <ETitle el="h3" size="lg">Etendused</ETitle>
           <template v-for="event in festival.events">
