@@ -52,7 +52,7 @@ defineProps(["festival"]);
       <EBox class="MainContent">
         <!-- @TODO: Add metadata -->
         <!-- <EDetailsList :details="details" /> -->
-        <EContent :content="festival.description_estonian" />
+        <EContent :content="formatMarkdown(festival.description_estonian)" />
       </EBox>
       <EBox class="SideContent" el="aside">
         <template v-if="upcomingEvents(festival.events).length > 0">
