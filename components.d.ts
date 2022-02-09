@@ -2,12 +2,12 @@
 // We suggest you to commit this file into source control
 // Read more: https://github.com/vuejs/vue-next/pull/3399
 
-declare module "vue" {
+declare module 'vue' {
   export interface GlobalComponents {
-    EBox: typeof import("elektro")["EBox"];
-    EContent: typeof import("elektro")["EContent"];
-    ETitle: typeof import("elektro")["ETitle"];
+    EBox: typeof import('elektro')['EBox']
+    EContent: typeof import('elektro')['EContent']
+    ETitle: typeof import('elektro')['ETitle']
   }
 }
 
-export {};
+export { }
