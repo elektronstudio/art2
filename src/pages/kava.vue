@@ -5,10 +5,16 @@ const festivals = await getFestivals();
 
 const isUpcoming = (start_at: string, end_at: string) => {
   const { urgency } = useRange(new Date(start_at), new Date(end_at));
-  return urgency === "upcoming";
+  return urgency.value === "future";
 };
 
 const upcomingEvents = (events: any[]) => {
+  console.log(
+    events.filter(
+      ({ start_at, end_at }: { start_at: string; end_at: string }) =>
+        isUpcoming(start_at, end_at),
+    ),
+  );
   return events.filter(
     ({ start_at, end_at }: { start_at: string; end_at: string }) =>
       isUpcoming(start_at, end_at),
@@ -22,9 +28,8 @@ const upcomingFestivals = festivals.filter(({ events }: { events: any[] }) =>
 </script>
 
 <template>
-  <!-- <ArtNav /> -->
   <main class="Page Projects">
-    <template v-if="upcomingFestivals > 0" v-for="festival in festivals">
+    <template v-if="upcomingFestivals.length > 0" v-for="festival in festivals">
       <!-- @TODO: Add short description from Strapi -->
       <EScheduleEvent
         v-if="upcomingEvents(festival.events).length > 0"
