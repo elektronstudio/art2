@@ -71,7 +71,6 @@ const { cards } = defineProps<Props>();
   flex-direction: column;
   gap: var(--gap-5);
   margin-bottom: var(--m-12);
-  padding: var(--p-5);
 }
 .ContentBlocks > h2 {
   grid-column: 1 / -1;
