@@ -73,6 +73,7 @@ const upcomingEvents = (events: any[]) => {
               <EEventInstance
                 v-if="isUpcoming(event.start_at, event.end_at)"
                 :start-at="formatDatetime(new Date(event.start_at))"
+                :end-at="formatDatetime(new Date(event.end_at))"
                 layout="vertical"
                 :ticket-url="event.ticketUrl"
               />
