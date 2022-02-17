@@ -34,14 +34,13 @@ const upcomingFestivals = festivals.filter(({ events }: { events: any[] }) =>
         :events="festival.events"
       >
         <template v-if="festival.events" v-for="item in festival.events">
-          <client-only>
-            <EEventInstance
-              v-if="isUpcoming(item.start_at, item.end_at)"
-              :start-at="formatDatetime(new Date(item.start_at))"
-              :end-at="formatDatetime(new Date(item.end_at))"
-              :ticket-url="item.ticketUrl"
-            />
-          </client-only>
+          <EEventInstance
+            client:only
+            v-if="isUpcoming(item.start_at, item.end_at)"
+            :start-at="formatDatetime(new Date(item.start_at))"
+            :end-at="formatDatetime(new Date(item.end_at))"
+            :ticket-url="item.ticketUrl"
+          />
         </template>
       </EScheduleEvent>
     </template>
