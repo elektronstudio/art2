@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import {
-  ETitle,
-  EFormText,
-  EButton,
-  validateTicket,
-  Ticketable,
-  getTicketableStatus,
-} from "elektro";
+import { ETitle, EFormText, EButton } from "elektro";
 
 const url = new URLSearchParams(window.location.search);
 const urlCode = url.get("code");
@@ -44,28 +37,3 @@ const onSubmit = () => {
     </div>
   </div>
 </template>
-
-<style scoped>
-.Fienta {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  min-height: 80vh;
-}
-.Fienta > div {
-  width: 50vw;
-  display: grid;
-  gap: var(--gap-4);
-}
-.Fienta .EButton {
-  justify-self: flex-start;
-}
-@media only screen and (max-width: 600px) {
-  .Fienta {
-    align-content: flex-start;
-  }
-  .Fienta > div {
-    width: 100%;
-  }
-}
-</style>
