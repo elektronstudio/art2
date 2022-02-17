@@ -69,12 +69,14 @@ const upcomingEvents = (events: any[]) => {
         <template v-if="upcomingEvents(festival.events).length > 0">
           <ETitle el="h3" size="lg">Etendused</ETitle>
           <template v-for="event in festival.events">
-            <EEventInstance
-              v-if="isUpcoming(event.start_at, event.end_at)"
-              :start-at="formatDatetime(new Date(event.start_at))"
-              layout="vertical"
-              :ticket-url="event.ticketUrl"
-            />
+            <client-only>
+              <EEventInstance
+                v-if="isUpcoming(event.start_at, event.end_at)"
+                :start-at="formatDatetime(new Date(event.start_at))"
+                layout="vertical"
+                :ticket-url="event.ticketUrl"
+              />
+            </client-only>
           </template>
         </template>
         <!-- @TODO: Add press -->
