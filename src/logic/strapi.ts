@@ -10,12 +10,12 @@ export async function getFestivals() {
 
 export async function getAboutPage() {
   return $fetch(
-    "http://localhost:1337/api/about?populate%5Bcards%5D%5Bpopulate%5D=*",
+    "https://strapi-v4-ee9v.onrender.com/api/about?populate%5Bcards%5D%5Bpopulate%5D=*",
   );
 }
 
 export async function getProjectsPage() {
   return $fetch(
-    "http://localhost:1337/api/project?populate%5Bcards%5D%5Bpopulate%5D=*",
+    "https://strapi-v4-ee9v.onrender.com/api/project?populate%5Bcards%5D%5Bpopulate%5D=*",
   );
 }
