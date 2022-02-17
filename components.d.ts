@@ -7,6 +7,8 @@ declare module 'vue' {
     EBox: typeof import('elektro')['EBox']
     EContent: typeof import('elektro')['EContent']
     ETitle: typeof import('elektro')['ETitle']
+    Fienta: typeof import('./src/components/Fienta.vue')['default']
+    Island: typeof import('./node_modules/iles/dist/client/app/components/Island.vue')['default']
   }
 }
 
