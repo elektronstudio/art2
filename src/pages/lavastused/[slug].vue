@@ -23,19 +23,17 @@ const images = festival.images.map((image: any) => ({
   caption: image.caption,
 }));
 
-console.log(images);
+const isUpcoming = (start_at: string, end_at: string) => {
+  const { urgency } = useRange(new Date(start_at), new Date(end_at));
+  return urgency.value === "future";
+};
 
-// const isUpcoming = (start_at: string, end_at: string) => {
-//   const { urgency } = useRange(new Date(start_at), new Date(end_at));
-//   return urgency.value === "future";
-// };
-
-// const upcomingEvents = (events: any[]) => {
-//   return events.filter(
-//     ({ start_at, end_at }: { start_at: string; end_at: string }) =>
-//       isUpcoming(start_at, end_at),
-//   );
-// };
+const upcomingEvents = (events: any[]) => {
+  return events.filter(
+    ({ start_at, end_at }: { start_at: string; end_at: string }) =>
+      isUpcoming(start_at, end_at),
+  );
+};
 </script>
 
 <template>
@@ -63,7 +61,7 @@ console.log(images);
         <EDetailsList :details="[{ detail: 'Detail', value: 'Value' }]" />
         <EContent :content="formatMarkdown(festival.description_estonian)" />
       </EBox>
-      <!-- <EBox
+      <EBox
         v-if="upcomingEvents(festival.events).length > 0 || festival.press"
         class="SideContent"
         el="aside"
@@ -79,12 +77,12 @@ console.log(images);
             />
           </template>
         </template>
-        @TODO: Add press
-        <template v-if="press">
+        <!-- @TODO: Add press -->
+        <!-- <template v-if="press">
           <ETitle el="h3" size="lg">Press</ETitle>
           <EPressItems :items="press" />
-        </template>
-      </EBox> -->
+        </template> -->
+      </EBox>
     </main>
   </article>
 </template>

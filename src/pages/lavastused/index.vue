@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { getFestivals } from "../../logic/strapi";
+import { formatDatetime } from "elektro";
+
 const festivals = await getFestivals();
 </script>
 
@@ -25,8 +27,8 @@ const festivals = await getFestivals();
           :thumbnail="festival.images[0]?.url"
           :next-event="
             festival.events[0] && {
-              startAt: festival.events[0]?.start_at,
-              endAt: festival.events[0]?.end_at,
+              startAt: formatDatetime(new Date(festival.events[0]?.start_at)),
+              endAt: formatDatetime(new Date(festival.events[0]?.end_at)),
             }
           "
         />
