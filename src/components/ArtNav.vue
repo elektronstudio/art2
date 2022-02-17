@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { getEvents } from "@/logic";
+import { useRange } from "elektro";
 import { ref } from "vue";
+const events = await getEvents();
 
 const navItems = [
   {
@@ -24,6 +27,22 @@ const navItems = [
   // },
 ];
 
+const isUpcoming = (start_at: string, end_at: string) => {
+  const { urgency } = useRange(new Date(start_at), new Date(end_at));
+  return urgency.value === "future";
+};
+
+const upcomingEvents = events.filter(
+  ({ start_at, end_at }: { start_at: string; end_at: string }) =>
+    isUpcoming(start_at, end_at),
+);
+
+const sortByDate = upcomingEvents.sort(
+  (event1: any, event2: any) =>
+    new Date(event1.start_at).getTime() - new Date(event2.start_at).getTime(),
+);
+
+const nextEvent = sortByDate[0];
 const navState = ref(false);
 </script>
 
@@ -35,7 +54,7 @@ const navState = ref(false);
       </RouterLink>
     </div>
     <ENav :class="{ navActive: navState }" :nav-items="navItems" />
-    <ELiveButton />
+    <ELiveButton v-if="nextEvent" :next-event="nextEvent" />
     <!-- @TODO: Add proper icon you html hacker :) -->
     <button class="toggleNav" @click="navState = !navState">
       <span></span>

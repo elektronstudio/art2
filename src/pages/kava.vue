@@ -38,6 +38,7 @@ const upcomingFestivals = festivals.filter(({ events }: { events: any[] }) =>
             <EEventInstance
               v-if="isUpcoming(item.start_at, item.end_at)"
               :start-at="formatDatetime(new Date(item.start_at))"
+              :end-at="formatDatetime(new Date(item.end_at))"
               :ticket-url="item.ticketUrl"
             />
           </client-only>
