@@ -28,7 +28,7 @@ const upcomingFestivals = festivals.filter(({ events }: { events: any[] }) =>
       <EScheduleEvent
         v-if="upcomingEvents(festival.events).length > 0"
         :title="festival.title"
-        description="Lavastus “Hundid” on jätk Liis Varese ja Taavet Janseni koostööle “Kõik loeb/ The Reader”, mille soe vastuvõtt on julgustanud neid digitaalse formaadiga edasi töötama."
+        :description="`${festival.description_estonian.slice(0, 300)}...`"
         :events="festival.events"
       >
         <template v-if="festival.events" v-for="item in festival.events">
