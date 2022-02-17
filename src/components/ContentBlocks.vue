@@ -8,12 +8,14 @@ type Card = {
     | "content.about-card"
     | "content.related-page"
     | "content.person-card"
+    | "content.image-card"
     | "content.external-link";
   title: string;
   content: string;
   name?: string;
   url?: string;
   layout?: "columns1" | "columns2" | "columns3" | "columns4";
+  image?: any;
   page?: {
     data: {
       attributes: {
@@ -49,17 +51,22 @@ const { cards } = defineProps<Props>();
       <ERelatedPageCard
         v-else-if="item.__component === 'content.related-page'"
         :title="item.title"
-        :content="formatMarkdown(item.content)"
+        :slug="item.page?.data.attributes.slug"
       />
-      <!-- <EExternallinkCard
-      v-else-if="item.__component === 'content.external-link'"
-      :title="item.title"
-      :url="item.url"
-    /> -->
+      <EExternallinkCard
+        v-else-if="item.__component === 'content.external-link'"
+        :title="item.title"
+        :url="item.url"
+      />
       <ETeamCard
         v-else-if="item.__component === 'content.person-card'"
         :name="item.name"
         :content="formatMarkdown(item.content)"
+      />
+      <EImageCard
+        v-else-if="item.__component === 'content.image-card'"
+        :sizes="Object.values(item.image.data.attributes.formats)"
+        :alt="item.image.data.attributes.alternativeText"
       />
     </template>
   </section>
