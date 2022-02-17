@@ -18,10 +18,10 @@ const navItems = [
     name: "Meist",
     path: "/meist",
   },
-  {
-    name: "ENG",
-    path: "/en",
-  },
+  // {
+  //   name: "ENG",
+  //   path: "/en",
+  // },
 ];
 
 const navState = ref(false);
