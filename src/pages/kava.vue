@@ -9,12 +9,6 @@ const isUpcoming = (start_at: string, end_at: string) => {
 };
 
 const upcomingEvents = (events: any[]) => {
-  console.log(
-    events.filter(
-      ({ start_at, end_at }: { start_at: string; end_at: string }) =>
-        isUpcoming(start_at, end_at),
-    ),
-  );
   return events.filter(
     ({ start_at, end_at }: { start_at: string; end_at: string }) =>
       isUpcoming(start_at, end_at),
