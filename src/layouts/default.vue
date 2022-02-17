@@ -1,36 +1,9 @@
 <script setup lang="ts">
-import { ENav } from "elektro";
-
-const navItems = [
-  {
-    name: "Lavastused",
-    path: "/lavastused",
-  },
-  {
-    name: "Projektid",
-    path: "/projektid",
-  },
-  {
-    name: "Kava",
-    path: "/kava",
-  },
-  {
-    name: "Meist",
-    path: "/meist",
-  },
-  {
-    name: "ENG",
-    path: "/en",
-  },
-  {
-    name: "LIVE",
-    path: "/live",
-  },
-];
+import ArtNav from "@/components/ArtNav.vue";
 </script>
 <template>
   <div>
-    <ENav :navItems="navItems" showLogo />
+    <ArtNav />
     <main class="Layout">
       <slot />
     </main>

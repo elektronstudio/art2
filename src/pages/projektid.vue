@@ -1,5 +1,12 @@
+<script setup lang="ts">
+import { getProjectsPage } from "@/logic";
+const data = await getProjectsPage();
+
+const cards = data.data.attributes.cards;
+</script>
+
 <template>
-  <div>
-    <ETitle size="lg">Projektid</ETitle>
-  </div>
+  <main class="Page About">
+    <ContentBlocks :cards="cards" />
+  </main>
 </template>
