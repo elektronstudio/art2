@@ -4,7 +4,7 @@ const festivals = await getFestivals();
 </script>
 
 <template>
-  <div>
+  <div class="Page">
     <ETitle size="lg">Festivalid</ETitle>
     <br />
     <div
@@ -34,3 +34,9 @@ const festivals = await getFestivals();
     </div>
   </div>
 </template>
+
+<style scoped>
+.Page {
+  padding: var(--p-4);
+}
+</style>

@@ -50,6 +50,7 @@ const upcomingFestivals = festivals.filter(({ events }: { events: any[] }) =>
 .Page.Projects {
   display: grid;
   grid-template-columns: 1fr;
+  padding: var(--p-4);
 }
 .Page.Projects > section {
   margin-bottom: var(--m-12);

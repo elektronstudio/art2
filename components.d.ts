@@ -13,6 +13,7 @@ declare module 'vue' {
     EEventInstance: typeof import('elektro')['EEventInstance']
     EExternallinkCard: typeof import('elektro')['EExternallinkCard']
     EImageCard: typeof import('elektro')['EImageCard']
+    EImageSlider: typeof import('elektro')['EImageSlider']
     ELiveButton: typeof import('elektro')['ELiveButton']
     ELogo: typeof import('elektro')['ELogo']
     ENav: typeof import('elektro')['ENav']

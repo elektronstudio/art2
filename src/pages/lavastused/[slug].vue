@@ -1,7 +1,4 @@
 <script lang="ts">
-import { getFestivals, formatMarkdown } from "../../logic";
-import { formatDatetime, useRange } from "elektro";
-
 export default definePageComponent({
   async getStaticPaths() {
     const festivals = await getFestivals();
@@ -13,21 +10,32 @@ export default definePageComponent({
 });
 
 // @TODO: Should these functions be in Elektro? Currently in two files.
-const isUpcoming = (start_at: string, end_at: string) => {
-  const { urgency } = useRange(new Date(start_at), new Date(end_at));
-  return urgency === "upcoming";
-};
-
-const upcomingEvents = (events: any[]) => {
-  return events.filter(
-    ({ start_at, end_at }: { start_at: string; end_at: string }) =>
-      isUpcoming(start_at, end_at),
-  );
-};
 </script>
 
 <script setup lang="ts">
-defineProps(["festival"]);
+import { formatDatetime, useRange } from "elektro";
+import { getFestivals, formatMarkdown } from "../../logic";
+const { festival } = defineProps(["festival"]);
+
+const images = festival.images.map((image: any) => ({
+  sizes: Object.values(image.formats),
+  alt: image.alternativeText,
+  caption: image.caption,
+}));
+
+console.log(images);
+
+// const isUpcoming = (start_at: string, end_at: string) => {
+//   const { urgency } = useRange(new Date(start_at), new Date(end_at));
+//   return urgency.value === "future";
+// };
+
+// const upcomingEvents = (events: any[]) => {
+//   return events.filter(
+//     ({ start_at, end_at }: { start_at: string; end_at: string }) =>
+//       isUpcoming(start_at, end_at),
+//   );
+// };
 </script>
 
 <template>
@@ -40,21 +48,22 @@ defineProps(["festival"]);
       <!-- @TODO: Add locale based conditionals -->
       <!-- @TODO: Add short description -->
       <!-- <EContent
-      v-if="festival.description_estonian"
-      :content="formatMarkdown(festival.description_estonian)"
-    /> -->
+        v-if="festival.description_estonian"
+        :content="formatMarkdown(festival.description_estonian)"
+      /> -->
       <!-- <EContent
       v-if="festival.description_english"
       :content="formatMarkdown(festival.description_english)"
     /> -->
     </header>
+    <EImageSlider :images="images" />
     <main>
       <EBox class="MainContent">
         <!-- @TODO: Add metadata -->
         <EDetailsList :details="[{ detail: 'Detail', value: 'Value' }]" />
         <EContent :content="formatMarkdown(festival.description_estonian)" />
       </EBox>
-      <EBox
+      <!-- <EBox
         v-if="upcomingEvents(festival.events).length > 0 || festival.press"
         class="SideContent"
         el="aside"
@@ -70,12 +79,12 @@ defineProps(["festival"]);
             />
           </template>
         </template>
-        <!-- @TODO: Add press -->
-        <!-- <template v-if="press">
+        @TODO: Add press
+        <template v-if="press">
           <ETitle el="h3" size="lg">Press</ETitle>
           <EPressItems :items="press" />
-        </template> -->
-      </EBox>
+        </template>
+      </EBox> -->
     </main>
   </article>
 </template>
@@ -86,7 +95,7 @@ defineProps(["festival"]);
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: var(--gap-5);
-  padding: var(--gap-5);
+  padding: var(--p-4);
   color: var(--gray-300);
 }
 

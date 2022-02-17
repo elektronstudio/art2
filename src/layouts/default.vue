@@ -12,7 +12,7 @@ import ArtNav from "@/components/ArtNav.vue";
 
 <style>
 .Layout {
-  padding: var(--p-4);
+  /* padding: var(--p-4); */
 }
 .ENav {
   grid-auto-columns: 1fr !important;

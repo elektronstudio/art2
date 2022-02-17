@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Index">
     <EContent size="lg">
       <p>
         Transdistsiplinaarne etendustkunsti platvorm, mis liidab kaasaegse
@@ -10,6 +10,9 @@
 </template>
 
 <style scoped>
+.Index {
+  padding: var(--p-4);
+}
 .EContent {
   max-width: 60ch;
   color: var(--gray-300);

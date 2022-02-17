@@ -77,6 +77,7 @@ const { cards } = defineProps<Props>();
   display: flex;
   flex-direction: column;
   gap: var(--gap-5);
+  padding: var(--p-4);
   margin-bottom: var(--m-12);
 }
 .ContentBlocks > h2 {
