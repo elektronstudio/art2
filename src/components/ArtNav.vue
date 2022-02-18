@@ -98,15 +98,15 @@ const navState = ref(false);
 }
 /* @TODO: Add breakpoints system */
 @media only screen and (max-width: 599px) {
-  .ENav.navActive {
+  .Nav.navActive {
     display: flex;
   }
 }
 @media only screen and (max-width: 999px) {
-  .ENav {
+  .Nav {
     display: none;
   }
-  .ENav.navActive {
+  .Nav.navActive {
     display: grid;
     position: fixed;
     top: var(--h-9);
@@ -124,7 +124,7 @@ const navState = ref(false);
   .ArtNav {
     display: flex;
   }
-  .ENav {
+  .Nav {
     flex-grow: 1;
     margin-left: calc(var(--border-DEFAULT) * -1);
   }

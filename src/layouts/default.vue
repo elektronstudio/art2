@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import Nav from "../components/Nav.vue";
+import ArtNav from "../components/ArtNav.vue";
 
 const navItems = [
-  {
-    name: "elektron (TODO)",
-    path: "/",
-  },
   {
     name: "Kava",
     path: "/kava",
@@ -22,15 +18,11 @@ const navItems = [
     name: "Signal podcast",
     path: "/signal",
   },
-  {
-    name: "Live (TODO)",
-    path: "/",
-  },
 ];
 </script>
 <template>
   <div>
-    <Nav :navItems="navItems" />
+    <ArtNav :navItems="navItems" />
     <main class="Layout">
       <slot />
     </main>
