@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: Refactor into Nav?
 import { useRange } from "elektro";
 import { ref } from "vue";
 import { getEvents } from "@/logic";
