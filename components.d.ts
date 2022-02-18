@@ -19,6 +19,7 @@ declare module 'vue' {
     EProductionCard: typeof import('elektro')['EProductionCard']
     ERelatedPageCard: typeof import('elektro')['ERelatedPageCard']
     EScheduleEvent: typeof import('elektro')['EScheduleEvent']
+    EStack: typeof import('elektro')['EStack']
     ETeamCard: typeof import('elektro')['ETeamCard']
     ETitle: typeof import('elektro')['ETitle']
     Island: typeof import('./node_modules/iles/dist/client/app/components/Island.vue')['default']
