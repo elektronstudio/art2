@@ -1,26 +1,29 @@
 <script setup lang="ts">
-import { getEvents } from "@/logic";
 import { useRange } from "elektro";
 import { ref } from "vue";
+import { getEvents } from "@/logic";
+import Nav from "./Nav.vue";
+
 const events = await getEvents();
 
 const navItems = [
   {
-    name: "Lavastused",
-    path: "/lavastused",
+    name: "Kava",
+    path: "/kava",
   },
   {
     name: "Projektid",
     path: "/projektid",
   },
   {
-    name: "Kava",
-    path: "/kava",
-  },
-  {
     name: "Meist",
     path: "/meist",
   },
+  {
+    name: "Signal podcast",
+    path: "/signal",
+  },
+
   // {
   //   name: "ENG",
   //   path: "/en",
@@ -49,13 +52,12 @@ const navState = ref(false);
 <template>
   <header class="ArtNav">
     <div class="topBar">
-      <RouterLink to="/" class="homeButton">
+      <a href="/" class="homeButton">
         <ELogo el="span" />
-      </RouterLink>
+      </a>
     </div>
-    <!-- <ENav :class="{ navActive: navState }" :nav-items="navItems" /> -->
+    <Nav :class="{ navActive: navState }" :nav-items="navItems" />
     <ELiveButton v-if="nextEvent" :next-event="nextEvent" />
-    <!-- @TODO: Add proper icon you html hacker :) -->
     <button class="toggleNav" @click="navState = !navState">
       <span></span>
       <span></span>

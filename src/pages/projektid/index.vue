@@ -7,7 +7,7 @@ const festivals = await getFestivals();
 
 <template>
   <div class="Page">
-    <ETitle size="lg">Festivalid</ETitle>
+    <ETitle size="lg">Projektid</ETitle>
     <br />
     <div
       style="
