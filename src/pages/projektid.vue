@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { getProjectsPage } from "@/logic";
-const data = await getProjectsPage();
-
-const cards = data.data.attributes.cards;
+const cards = ref<any>(null);
+try {
+  const data = await getProjectsPage();
+  cards.value = data.data.attributes.cards;
+} catch {}
 </script>
 
 <template>
