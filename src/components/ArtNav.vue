@@ -53,7 +53,7 @@ const navState = ref(false);
         <ELogo el="span" />
       </RouterLink>
     </div>
-    <ENav :class="{ navActive: navState }" :nav-items="navItems" />
+    <!-- <ENav :class="{ navActive: navState }" :nav-items="navItems" /> -->
     <ELiveButton v-if="nextEvent" :next-event="nextEvent" />
     <!-- @TODO: Add proper icon you html hacker :) -->
     <button class="toggleNav" @click="navState = !navState">
