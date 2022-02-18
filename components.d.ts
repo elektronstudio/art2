@@ -16,12 +16,12 @@ declare module 'vue' {
     EImageSlider: typeof import('elektro')['EImageSlider']
     ELiveButton: typeof import('elektro')['ELiveButton']
     ELogo: typeof import('elektro')['ELogo']
-    ENav: typeof import('elektro')['ENav']
     EProductionCard: typeof import('elektro')['EProductionCard']
     ERelatedPageCard: typeof import('elektro')['ERelatedPageCard']
     EScheduleEvent: typeof import('elektro')['EScheduleEvent']
     ETeamCard: typeof import('elektro')['ETeamCard']
     ETitle: typeof import('elektro')['ETitle']
+    Island: typeof import('./node_modules/iles/dist/client/app/components/Island.vue')['default']
   }
 }
 
