@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Parser from "rss-parser/dist/rss-parser.js";
 import { $fetch } from "ohmyfetch";
+import Parser from "rss-parser/dist/rss-parser.js";
 
 import { formatMarkdown } from "../logic";
 
