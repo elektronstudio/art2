@@ -13,7 +13,8 @@
   "dependencies": {
     "cross-fetch": "^3.1.5",
     "elektro": "^0.0.31-beta.3",
-    "marked": "^4.0.10"
+    "marked": "^4.0.10",
+    "rss-parser": "^3.12.0"
   },
   "devDependencies": {
     "@types/marked": "^4.0.1",
