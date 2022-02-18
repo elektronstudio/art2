@@ -4,15 +4,16 @@ export async function getEvents() {
   return $fetch("https://strapi.elektron.art/events");
 }
 
-export const sortPinnedFirst = (a, b) => {
-  return Number(b.pinned) - Number(a.pinned);
-};
+// TODO use proper Strapi sorting / filtering tools, did it
+// in post for time effiency
 
 export async function getFestivals() {
   return $fetch(
     "https://strapi.elektron.art/festivals?_sort=created_at:DESC&_limit=-1",
   ).then((f) =>
-    f.sort(sortPinnedFirst).filter((f: any) => f.slug !== "signal"),
+    f
+      .sort((a: any, b: any) => Number(b.pinned) - Number(a.pinned))
+      .filter((f: any) => f.slug !== "signal"),
   );
 }
 
