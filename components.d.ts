@@ -16,6 +16,7 @@ declare module 'vue' {
     EImageSlider: typeof import('elektro')['EImageSlider']
     ELiveButton: typeof import('elektro')['ELiveButton']
     ELogo: typeof import('elektro')['ELogo']
+    ENav: typeof import('./src/components/ENav.vue')['default']
     EProductionCard: typeof import('elektro')['EProductionCard']
     ERelatedPageCard: typeof import('elektro')['ERelatedPageCard']
     EScheduleEvent: typeof import('elektro')['EScheduleEvent']
@@ -23,6 +24,8 @@ declare module 'vue' {
     ETeamCard: typeof import('elektro')['ETeamCard']
     ETitle: typeof import('elektro')['ETitle']
     Island: typeof import('./node_modules/iles/dist/client/app/components/Island.vue')['default']
+    Nav: typeof import('./src/components/Nav.vue')['default']
+    Navigation: typeof import('./src/components/Navigation.vue')['default']
   }
 }
 

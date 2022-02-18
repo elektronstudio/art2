@@ -7,7 +7,7 @@ const festivals = await getFestivals();
 
 <template>
   <div class="Page">
-    <ETitle size="lg">Festivalid</ETitle>
+    <ETitle size="lg">Projektid</ETitle>
     <br />
     <div
       style="
@@ -18,7 +18,7 @@ const festivals = await getFestivals();
     >
       <router-link
         v-for="festival in festivals"
-        :to="'/lavastused/' + festival.slug"
+        :to="'/projektid/' + festival.slug"
       >
         <!-- @TODO: Add author/producer field to Strapi -->
         <!-- @TODO: Verify if events feed is ASC by event start -->

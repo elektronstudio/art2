@@ -32,6 +32,7 @@ const upcomingFestivals = festivals.filter(({ events }: { events: any[] }) =>
           formatMarkdown(`${festival.description_estonian.slice(0, 240)}...`)
         "
         :events="festival.events"
+        :path="''"
       >
         <template v-if="festival.events" v-for="item in festival.events">
           <EEventInstance
